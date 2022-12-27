@@ -1,0 +1,71 @@
+{
+    "name": "dmo/savings-bond-module",
+    "type": "library",
+    "authors": [
+        {
+            "name": "bosahc",
+            "email": "bosah@hasobnigeria.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DMO\\SavingsBond\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [],
+            "providers": [
+                "DMO\\SavingsBond\\Providers\\SavingsBondEventServiceProvider",
+                "DMO\\SavingsBond\\Providers\\SavingsBondServiceProvider",
+                "DMO\\SavingsBond\\ServiceProvider"
+            ],
+            "aliases": {
+                "SavingsBond": "DMO\\SavingsBond\\Facades\\SavingsBond"
+            }
+        }
+    },
+    "require": {
+        "php": "^7.3|^8.0",
+        "amenadiel/jpgraph": "^4.1",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "hasob/hasob-foundation-core-bs-5": "dev-main",
+        "illuminate/routing": "^6|^7|^8",
+        "illuminate/session": "^6|^7|^8",
+        "illuminate/support": "^6|^7|^8",
+        "laravel/sanctum": "^2.11",
+        "mpdf/mpdf": "^8.0",
+        "nesbot/carbon": "^2.50",
+        "spatie/laravel-permission": "^4.2",
+        "symfony/debug": "^4.3|^5",
+        "symfony/finder": "^4.3|^5",
+        "yajra/laravel-datatables": "1.5"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.3.3",
+        "orchestra/testbench-dusk": "^4|^5|^6",
+        "phpunit/phpunit": "^8.5|^9.0",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DMO\\SavingsBond\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../hasob-foundation-core-bs-5"
+        }
+    ],
+    "scripts": {
+        "check-style": "phpcs -p --standard=PSR12 config/ src/ tests/",
+        "fix-style": "phpcbf -p --standard=PSR12 config/ src/ tests/",
+        "test": "phpunit"
+    }
+}

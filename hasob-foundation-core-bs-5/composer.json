@@ -1,0 +1,63 @@
+{
+    "name": "hasob/hasob-foundation-core-bs-5",
+    "type": "library",
+    "authors": [
+        {
+            "name": "bosahc",
+            "email": "bosah@hasobnigeria.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hasob\\FoundationCore\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [],
+            "providers": [
+                "Hasob\\FoundationCore\\Providers\\FoundationCoreEventServiceProvider",
+                "Hasob\\FoundationCore\\Providers\\OrganizationServiceProvider",
+                "Hasob\\FoundationCore\\ServiceProvider"
+            ],
+            "aliases": {
+                "FoundationCore": "Hasob\\FoundationCore\\Facades\\FoundationCore"
+            }
+        }
+    },
+    "require": {
+        "php": "^7.3|^8.0",
+        "google/cloud-storage": "^1.26",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "illuminate/routing": "^6|^7|^8",
+        "illuminate/session": "^6|^7|^8",
+        "illuminate/support": "^6|^7|^8",
+        "laravel/sanctum": "^2.11",
+        "nesbot/carbon": "^2.50",
+        "spatie/laravel-permission": "^4.2",
+        "symfony/debug": "^4.3|^5",
+        "symfony/finder": "^4.3|^5",
+        "yajra/laravel-datatables": "1.5"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.3.3",
+        "orchestra/testbench-dusk": "^4|^5|^6",
+        "phpunit/phpunit": "^8.5|^9.0",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hasob\\FoundationCore\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "check-style": "phpcs -p --standard=PSR12 config/ src/ tests/",
+        "fix-style": "phpcbf -p --standard=PSR12 config/ src/ tests/",
+        "test": "phpunit"
+    }
+}
